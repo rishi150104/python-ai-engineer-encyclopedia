@@ -1,0 +1,24 @@
+{
+"id": "A-LANGCHAIN",
+"url": "https://python.langchain.com/docs/concepts/",
+"accessed_on": "2026-10-23",
+"sha256": "e999f7ea46f59a8e05daa6be9323ebe7c64db51ef0f8d46716cf9c794b9c04b9",
+"license": "MIT",
+"items": [
+"Documentation Index",
+"Get started",
+"Core components",
+"Middleware",
+"Frontend",
+"Advanced usage",
+"Agent development",
+"Production",
+"On this page",
+"​ Create an agent",
+"​ Core benefits",
+"Standard model interface",
+"Highly configurable harness",
+"Built on top of LangGraph",
+"Debug with LangSmith"
+]
+}

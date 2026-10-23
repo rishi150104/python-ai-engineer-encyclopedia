@@ -1,0 +1,15 @@
+{
+"id": "P-AWS-WAF",
+"url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/the-pillars-of-the-framework.html",
+"accessed_on": "2026-10-23",
+"sha256": "417ba40f3fa0bd7e8a6362d539d94128d5e67ea289188e78e34b8d2d391a1a67",
+"license": "AWS site terms (6 pillar names only)",
+"items": [
+"Operational excellence",
+"Security",
+"Reliability",
+"Performance efficiency",
+"Cost optimization",
+"Sustainability"
+]
+}

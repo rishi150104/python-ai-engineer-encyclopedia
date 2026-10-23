@@ -1,0 +1,664 @@
+# Human-authored claim and example record for PY-0002. Scripts never rewrite this file.
+# Machine-written results (quote presence per doc version, example outputs, fetch hashes) are in verification/generated/.
+# Evidence types: support=direct (a quoted source states it) | inferred (follows from quoted premises AND an example confirms it) |
+# judgment (engineering advice, unsourced). Observed behavior is recorded only as example results, never as a documented guarantee.
+# `review.entailment` (FULL|PARTIAL|NONE) records whether the quoted text entails the claim as worded; VERIFIED needs FULL for
+# every critical/important sourced claim. Claims are tagged [Cn] in entries/py/PY-0002.md.
+id: PY-0002
+independent_review:
+  status: NOT_DONE
+  note: All reviews so far are by the model that drafted the page. A person or a different reviewer has not examined
+    the entailment judgments.
+claims:
+- id: C1
+  text: Every object has an identity, a type and a value. The identity never changes once the object is created;
+    the id() function returns an integer representing it.
+  importance: critical
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.1 Objects, values and types
+  quotes:
+  - Every object has an identity, a type and a value
+  - An object's identity never changes once it has been created
+  - the id() function returns an integer representing its identity
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Source states all three parts in one paragraph. Added the id()-returns-integer quote because the earlier
+      C2 text claimed it without evidence.
+- id: C2
+  text: '`is` compares identity: `x is y` is true if and only if x and y are the same object.'
+  importance: critical
+  support: direct
+  source: SRC-PY-EXPRESSIONS-3.11
+  section: 6.10.3 Identity comparisons
+  quotes:
+  - The operators is and is not test for an object's identity
+  - x is y is true if and only if x and y are the same object
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Direct statement. The 'id() returns an integer' part moved to C1 where the source supports it.
+- id: C3
+  text: id() is unique and constant for an object during its lifetime; objects with non-overlapping lifetimes may
+    share an id.
+  importance: important
+  support: direct
+  source: SRC-PY-BUILTINS-3.11
+  section: id(object)
+  quotes:
+  - guaranteed to be unique and constant for this object during its lifetime
+  - Two objects with non-overlapping lifetimes may have the same id() value
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Builtins doc states uniqueness, constancy and possible reuse after lifetimes end in adjacent sentences.
+- id: C4
+  text: In CPython id(x) is the memory address; this is an implementation detail.
+  importance: important
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.1 Objects, values and types
+  quotes:
+  - 'CPython implementation detail: For CPython, id(x) is the memory address where x is stored.'
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Marked 'CPython implementation detail' in the source; claim keeps that qualification.
+- id: C5
+  text: Mutable objects can change value; numbers, strings and tuples are immutable, dicts and lists mutable; mutability
+    is determined by type.
+  importance: critical
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.1 Objects, values and types
+  quotes:
+  - Objects whose value can change are said to be mutable
+  - numbers, strings and tuples are immutable, while dictionaries and lists are mutable
+  - An object's mutability is determined by its type
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Added the ''determined by its type'' quote: the original text claimed it without a quote.'
+- id: C6
+  text: An immutable container holding a mutable object is still immutable, but its value changes when that object
+    changes; container mutability concerns only the identities of immediately contained objects.
+  importance: critical
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.1 Objects, values and types
+  quotes:
+  - The value of an immutable container object that contains a reference to a mutable object can change when the
+    latter's value is changed
+  - however the container is still considered immutable
+  - when we talk about the mutability of a container, only the identities of the immediately contained objects are
+    implied
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Source itself notes the subtlety ('immutability is not strictly the same as having an unchangeable value').
+      Added the 'still considered immutable' quote.
+- id: C7
+  text: == compares values; the default equality is based on identity, and built-in types override it.
+  importance: critical
+  support: direct
+  source: SRC-PY-EXPRESSIONS-3.11
+  section: 6.10.1 Value comparisons
+  quotes:
+  - The operators <, >, ==, >=, <=, and != compare the values of two objects
+  - The default behavior for equality comparison (== and !=) is based on the identity of the objects
+  - a number of built-in types have done that
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: '''Compares values'' quote added. ''Default is identity-based'' and ''built-ins customize'' are both stated.'
+- id: C8
+  text: 'The default equality behavior is motivated by reflexivity (x is y implies x == y). NaN is the documented
+    counterexample: for x = float(''NaN''), x == x is false and x != x is true (IEEE 754).'
+  importance: important
+  support: direct
+  source: SRC-PY-EXPRESSIONS-3.11
+  section: 6.10.1 Value comparisons
+  quotes:
+  - the desire that all objects should be reflexive (i.e. x is y implies x == y)
+  - not-a-number values are not equal to themselves
+  - x == x are all false, while x != x is true
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Narrowed: the source gives reflexivity as a motivation/invariant, so the claim no longer says it is a
+      language guarantee.'
+- id: C9
+  text: Built-in containers typically assume identical objects are equal to themselves and bypass equality tests
+    for them. For list, tuple, set, frozenset, dict and deque, `x in y` is equivalent to `any(x is e or x == e for
+    e in y)`.
+  importance: important
+  support: direct
+  source: SRC-PY-EXPRESSIONS-3.11
+  section: 6.10.1 Value comparisons; 6.10.2 Membership test operations
+  quotes:
+  - The built-in containers typically assume identical objects are equal to themselves
+  - That lets them bypass equality tests for identical objects
+  - is equivalent to any(x is e or x == e for e in y)
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Source says 'typically', so it is not a guarantee for every container; the earlier text dropped 'typically'
+      (fixed here and in the page). The `x in y` equivalence is stated explicitly for the listed types.
+- id: C10
+  text: PEP 8 advises comparing singletons such as None with `is`/`is not`, never with equality operators.
+  importance: important
+  support: direct
+  source: SRC-PY-EXPRESSIONS-3.11
+  section: 6.10.1 Value comparisons
+  quotes:
+  - None and NotImplemented are singletons.
+  - comparisons for singletons should always be done with is or is not, never the equality operators
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Direct; the source attributes the advice to PEP 8 (secondary citation via the reference).
+- id: C11
+  text: For immutable types an implementation may return an existing object (a = 1; b = 1 may or may not share an
+    object); c = []; d = [] are guaranteed distinct; c = d = [] shares one list.
+  importance: important
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.1 Objects, values and types
+  quotes:
+  - may or may not refer to the same object with the value one
+  - guaranteed to refer to two different, unique, newly created empty lists
+  - c = d = [] assigns the same object to both
+  quotes_by_version:
+    '3.13':
+    - may or may not refer to the same object with the value one
+    - c and d are guaranteed to refer to two different, unique, newly created empty lists
+    - assigns the same object to both
+  version_note: Wording changed in 3.12 (passage expanded; variable names in the aside changed to e/f; adds 'should
+    not be relied upon'). Semantics unchanged.
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Three sub-claims each have a matching quote. 'May or may not' is why the page recommends against `is`
+      for numbers (that recommendation itself is labelled judgment).
+- id: C12
+  text: Assignment does not copy objects; it binds a target (name) to an object.
+  importance: critical
+  support: direct
+  source: SRC-PY-COPY-3.11
+  section: Module intro
+  quotes:
+  - Assignment statements in Python do not copy objects, they create bindings between a target and an object.
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Verbatim definition from the copy module intro.
+- id: C13
+  text: Assignment statements (re)bind names and also modify attributes or items of mutable objects.
+  importance: important
+  support: direct
+  source: SRC-PY-SIMPLE-STMTS-3.11
+  section: 7.2 Assignment statements
+  quotes:
+  - Assignment statements are used to (re)bind names to values and to modify attributes or items of mutable objects
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Direct.
+- id: C14
+  text: Augmented assignment performs the operation in place when possible (the old object is modified instead of
+    a new one being created); otherwise the assignment to the target is handled like a normal assignment.
+  importance: important
+  support: direct
+  source: SRC-PY-SIMPLE-STMTS-3.11
+  section: 7.2.1 Augmented assignment statements
+  quotes:
+  - when possible, the actual operation is performed in-place
+  - the old object is modified instead
+  - the assignment done by augmented assignment statements is handled the same way as normal assignments
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Narrowed: original text said the result is ''then written back'', but the ''writes the result back''
+      quote is about the `a[i] += f(x)` form; the general rule is the ''handled the same way as normal assignments''
+      sentence.'
+- id: C15
+  text: 'For `t[0] += [3]` with t a tuple holding a list: the documented order is look up t[0], compute the addition,
+    write the result back to t[0]. For a list the addition extends it in place (C16), so the list is already extended
+    when the write-back to the tuple is attempted. OBSERVED, not stated in the quoted text: the write-back fails
+    with TypeError (E3, Python 3.11.15 and 3.13.12).'
+  importance: important
+  support: inferred
+  source: SRC-PY-SIMPLE-STMTS-3.11
+  section: 7.2.1 Augmented assignment statements
+  quotes:
+  - first looks-up a[i], then it evaluates f(x) and performs the addition
+  - lastly, it writes the result back to a[i]
+  verified_by:
+  - E3
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Entailed: ordering (documented) + in-place extend (C16) + tuple immutability (C5). The exception TYPE
+      is not in any quoted passage and is therefore recorded as observed behavior only.'
+- id: C16
+  text: For lists (mutable sequence types), `s += t` extends s with the contents of t.
+  importance: important
+  support: direct
+  source: SRC-PY-STDTYPES-3.11
+  section: Mutable Sequence Types
+  quotes:
+  - extends s with the contents of t
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Narrowed: the earlier text also claimed str behavior, which this quote does not support; that is now
+      C31.'
+- id: C17
+  text: A shallow copy builds a new compound object and inserts references to the original's items; a deep copy
+    recursively inserts copies. The difference only matters for compound objects.
+  importance: critical
+  support: direct
+  source: SRC-PY-COPY-3.11
+  section: Module intro
+  quotes:
+  - A shallow copy constructs a new compound object and then (to the extent possible) inserts references into it
+    to the objects found in the original.
+  - A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found
+    in the original.
+  - The difference between shallow and deep copying is only relevant for compound objects
+  - Return a shallow copy of x.
+  - Return a deep copy of x.
+  quotes_by_version:
+    '3.13':
+    - A shallow copy constructs a new compound object and then (to the extent possible) inserts references into it to the objects found in the original.
+    - A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original.
+    - The difference between shallow and deep copying is only relevant for compound objects
+    - Return a shallow copy of obj.
+    - Return a deep copy of obj.
+  version_note: "Interface wording changed in 3.13: the parameter is documented as `obj` instead of `x` (copy.copy(obj), copy.deepcopy(obj[, memo])); 3.13 also adds copy.replace(), which this entry does not cover. Definitions of shallow and deep copy are unchanged."
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Added the 'only relevant for compound objects' and copy.copy/deepcopy interface quotes the page relies
+      on.
+- id: C18
+  text: deepcopy keeps a memo dictionary so recursive objects do not loop forever; deep copy may copy too much (data
+    meant to be shared); classes can customize with __copy__/__deepcopy__.
+  importance: important
+  support: direct
+  source: SRC-PY-COPY-3.11
+  section: Module intro
+  quotes:
+  - keeping a memo dictionary of objects already copied during the current copying pass
+  - it may copy too much, such as data which is intended to be shared between copies
+  - special methods __copy__() and __deepcopy__()
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Each of the three sub-claims has its own quote.
+- id: C19
+  text: dict.copy() and s[:] / s.copy() on lists give shallow copies.
+  importance: important
+  support: direct
+  source: SRC-PY-STDTYPES-3.11
+  section: Mutable Sequence Types; Mapping Types - dict
+  quotes:
+  - creates a shallow copy of s
+  - Return a shallow copy of the dictionary.
+  quotes_by_version:
+    '3.13':
+    - Create a shallow copy of sequence. This is equivalent to writing sequence[:]
+    - Return a shallow copy of the dictionary.
+  version_note: 'Documentation relocated and reworded in 3.13: the sequence-copy statement moved from the mutable-sequence
+    table into a new ''sequence.copy()'' entry (''Added in version 3.3''). dict.copy() wording unchanged. Semantics
+    unchanged.'
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 3.11 table entry says 's.copy() creates a shallow copy of s (same as s[:])'; dict.copy() says 'Return
+      a shallow copy of the dictionary.' Neither covers `dict(other)`, which the page does not claim as a documented
+      fact.
+- id: C20
+  text: In s * n the items are not copied but referenced multiple times ([[]] * 3 makes three references to one
+    list).
+  importance: critical
+  support: direct
+  source: SRC-PY-STDTYPES-3.11
+  section: Common Sequence Operations
+  quotes:
+  - Note that items in the sequence s are not copied; they are referenced multiple times.
+  - lists = [[]] * 3
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: The source's own example is `lists = [[]] * 3` followed by an append that shows up three times.
+- id: C21
+  text: Arguments are passed by assignment, so there is no alias between an argument name in the caller and the
+    callee and no call-by-reference per se. In the FAQ example, rebinding the parameters (a = 'new-value') affects
+    only the local names.
+  importance: critical
+  support: direct
+  source: SRC-PY-FAQ-PROGRAMMING-3.11
+  section: How do I write a function with output parameters (call by reference)?
+  quotes:
+  - arguments are passed by assignment in Python
+  - there's no alias between an argument name in the caller and callee, and so no call-by-reference per se
+  - a and b are local names
+  quotes_by_version:
+    '3.13':
+    - arguments are passed by assignment in Python
+    - there's no alias between an argument name in the caller and callee, and consequently no call-by-reference
+    - a and b are local names
+  version_note: 'Wording change in 3.13: ''and so no call-by-reference per se'' became ''and consequently no call-by-reference''.
+    Semantics unchanged.'
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: The 'rebinding affects only local names' part was previously unquoted; now quoted from the FAQ example.
+- id: C22
+  text: Default parameter values are evaluated once, when the def statement runs, and the same object is used for
+    every call; a mutated mutable default is thereby modified for later calls.
+  importance: critical
+  support: direct
+  source: SRC-PY-COMPOUND-STMTS-3.11
+  section: 8.7 Function definitions
+  quotes:
+  - the expression is evaluated once, when the function is defined, and that the same "pre-computed" value is used
+    for each call
+  - the default parameter value is in effect modified
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Both quotes are in the language reference's function-definition section; the source itself says this 'is
+      generally not what was intended'.
+- id: C23
+  text: 'The tutorial shows the None-default idiom (`if L is None: L = []`) to avoid sharing a default between calls,
+    and warns that the default is evaluated only once.'
+  importance: important
+  support: direct
+  source: SRC-PY-TUTORIAL-CONTROLFLOW-3.11
+  section: 4.8.1 Default Argument Values
+  quotes:
+  - The default value is evaluated only once.
+  - If you don't want the default to be shared between subsequent calls
+  - 'if L is None:'
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Narrowed: ''avoid mutable defaults'' advice is in the FAQ (C24), not the tutorial; removed it from this
+      claim.'
+- id: C24
+  text: 'The FAQ says default values are created exactly once and recommends not using mutable objects as defaults
+    (use None and create the object in the body). It states that immutable objects such as numbers, strings, tuples
+    and None ''are safe from change'', which is unqualified for tuples: per C6 a tuple holding a mutable object
+    is not safe.'
+  importance: important
+  support: direct
+  source: SRC-PY-FAQ-PROGRAMMING-3.11
+  section: Why are default values shared between objects?
+  quotes:
+  - Default values are created exactly once, when the function is defined.
+  - it is good programming practice to not use mutable objects as default values
+  - By definition, immutable objects such as numbers, strings, tuples, and None, are safe from change.
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: 'Found a simplification in the source: the FAQ''s blanket statement about tuples conflicts with the data
+      model''s container subtlety (C6). The page now qualifies it.'
+- id: C25
+  text: '@dataclass raises ValueError for an unhashable default value and offers field(default_factory=...) for
+    per-instance values; the docs call the check a partial solution. In 3.11 the check changed from ''list, dict
+    or set'' to ''any unhashable object''; earlier versions only reject list, dict and set.'
+  importance: important
+  support: direct
+  source: SRC-PY-DATACLASSES-3.11
+  section: Mutable default values
+  quotes:
+  - the @dataclass decorator will raise a ValueError if it detects an unhashable default parameter
+  - This is a partial solution
+  - 'x: list = field(default_factory=list)'
+  - Instead of looking for and disallowing objects of type list, dict, or set, unhashable objects are now not allowed
+    as default values.
+  version_note: 'Version-sensitive: general unhashable-default check applies from Python 3.11 (documented ''Changed
+    in version 3.11''); before 3.11 only list, dict and set defaults were rejected.'
+  reviewer_note: "Known limitation: the pre-3.11 behavior (only list, dict, set rejected) is evidenced ONLY by the 3.11 docs' own 'Changed in version 3.11' sentence. The 3.10 docs were not compared. Please judge whether the page's pre-3.11 sentence is acceptable as worded, and whether the 3.10 page contradicts it."
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: The version change is documented in the 3.11 dataclasses page; the 3.10 page does not state the old rule
+      in the same words, so the pre-3.11 statement rests on the 3.11 changelog sentence.
+- id: C26
+  text: Dict keys and set elements must be hashable; values containing lists, dicts or other mutable types compared
+    by value cannot be keys. Values that compare equal (1, 1.0, True) index the same entry.
+  importance: critical
+  support: direct
+  source: SRC-PY-STDTYPES-3.11
+  section: Mapping Types - dict
+  quotes:
+  - A mapping object maps hashable values to arbitrary objects
+  - Values that are not hashable, that is, values containing lists, dictionaries or other mutable types
+  - Values that compare equal (such as 1, 1.0, and True) can be used interchangeably to index the same dictionary
+    entry.
+  - The elements of a set must be hashable.
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Set-element hashability quote added (the claim mentions sets).
+- id: C27
+  text: Hashing a tuple (immutable sequence) that contains unhashable values raises TypeError.
+  importance: important
+  support: direct
+  source: SRC-PY-STDTYPES-3.11
+  section: Immutable Sequence Types
+  quotes:
+  - Attempting to hash an immutable sequence that contains unhashable values will result in TypeError.
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Direct.
+- id: C28
+  text: A class that overrides __eq__ without defining __hash__ gets __hash__ = None and is unhashable; objects
+    that compare equal must have the same hash; a mutable class defining __eq__ should not implement __hash__.
+  importance: important
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.3.1 Basic customization (object.__hash__)
+  quotes:
+  - objects which compare equal have the same hash value
+  - A class that overrides __eq__() and does not define __hash__() will have its __hash__() implicitly set to None
+  - it should not implement __hash__(), since the implementation of hashable collections requires that a key's hash
+    value is immutable
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Three sub-claims, each quoted; the 'should not implement __hash__' text is advice in the docs, claim says
+      'should'.
+- id: C29
+  text: Objects are never explicitly destroyed; unreachable objects may be garbage-collected, and code must not
+    depend on immediate finalization (close resources explicitly).
+  importance: important
+  support: direct
+  source: SRC-PY-DATAMODEL-3.11
+  section: 3.1 Objects, values and types
+  quotes:
+  - Objects are never explicitly destroyed; however, when they become unreachable they may be garbage-collected.
+  - Do not depend on immediate finalization of objects when they become unreachable
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Direct.
+- id: C30
+  text: Backend guidance (module-level config shared across requests, caches returning mutable objects, copy-on-boundary
+    rule) and interview expectations are engineering judgment, not official documentation. Demonstrated by E7 where
+    possible.
+  importance: minor
+  support: judgment
+  review:
+    entailment: NONE
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Judgment; deliberately has no source.
+- id: C31
+  text: For a str, `s += x` rebinds s to a new str, so other names bound to the old string are unaffected. Inferred
+    from C5 (strings are immutable) plus the 'when possible' qualifier of in-place operation; confirmed by E2.
+  importance: important
+  support: inferred
+  source: SRC-PY-SIMPLE-STMTS-3.11
+  section: 7.2.1 Augmented assignment statements
+  quotes:
+  - when possible, the actual operation is performed in-place
+  verified_by:
+  - E2
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Inference needs the premise C5; both premises are quoted. Observed in E2.
+- id: C32
+  text: Mutating the object a parameter refers to is visible to the caller, while rebinding the parameter is not.
+    Inferred from 'assignment just creates references to objects' (the parameter and the caller's name refer to
+    one object); confirmed by E5.
+  importance: important
+  support: inferred
+  source: SRC-PY-FAQ-PROGRAMMING-3.11
+  section: How do I write a function with output parameters (call by reference)?
+  quotes:
+  - Since assignment just creates references to objects
+  verified_by:
+  - E5
+  review:
+    entailment: FULL
+    reviewer: claude-sonnet-5-5 (same model that drafted the page; second pass; NOT independent)
+    independent: false
+    date: '2026-10-23'
+    note: Logical consequence of the quoted sentence; the page previously stated it without a claim record.
+examples:
+- id: E1
+  file: verification/examples/PY-0002/e1_identity_vs_equality.py
+  requires: []
+  expected_output: 'True False True True
+
+    False True True True
+
+    True True'
+- id: E2
+  file: verification/examples/PY-0002/e2_rebinding_vs_mutation.py
+  requires: []
+  expected_output: 'abc ab False
+
+    [1, 2] [1, 2] True
+
+    [1, 2, 3] [1, 2] False'
+- id: E3
+  file: verification/examples/PY-0002/e3_tuple_with_list.py
+  requires: []
+  expected_output: '([1, 2],)
+
+    TypeError
+
+    ([1, 2, 3],)
+
+    unhashable key'
+- id: E4
+  file: verification/examples/PY-0002/e4_copying.py
+  requires: []
+  expected_output: '[[1, 2, 99], [3]] [[1, 2], [3]]
+
+    False True False
+
+    True True
+
+    [[''x''], [''x''], [''x'']] True
+
+    [[''x''], [], []]
+
+    True True'
+- id: E5
+  file: verification/examples/PY-0002/e5_function_arguments.py
+  requires: []
+  expected_output: '[1]
+
+    [1, 0]
+
+    [1, 2] [1, 2] ([1, 2],)
+
+    [1] [2] (None,)'
+- id: E6
+  file: verification/examples/PY-0002/e6_hashability.py
+  requires: []
+  expected_output: 'True
+
+    Point is unhashable
+
+    a t
+
+    dataclass rejects mutable default
+
+    False'
+- id: E7
+  file: verification/examples/PY-0002/e7_backend_shared_state.py
+  requires: []
+  expected_output: 'after buggy call, module default: 0.9
+
+    after safe call, module default: 0.2'

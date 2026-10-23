@@ -1,0 +1,28 @@
+{
+"id": "A-SQLA",
+"url": "https://docs.sqlalchemy.org/en/20/tutorial/index.html",
+"accessed_on": "2026-10-23",
+"sha256": "4ffa6b813e5e7b1fb19f8f50580fecc1e83ee4ab8cedabafb5a65a56841ba3f5",
+"license": "MIT",
+"items": [
+"SQLAlchemy Unified Tutorial",
+"Tutorial Overview",
+"Version Check",
+"2.0 style",
+"select()",
+"SQLAlchemy 2.0 - Major Migration Guide",
+"Establishing Connectivity - the Engine",
+"Engine",
+"Working with Transactions and the DBAPI",
+"Connection",
+"Result",
+"Working with Database Metadata",
+"Working with Data",
+"CRUD",
+"Using SELECT Statements",
+"Data Manipulation with the ORM",
+"Working with ORM Related Objects",
+"relationship()",
+"Further Reading"
+]
+}

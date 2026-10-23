@@ -1,0 +1,146 @@
+# Human-authored source metadata. Fetch results (access date, sha256, doc version, snapshot path) are machine-written
+# to verification/generated/sources.yaml by scripts/check_claims.py; never put them here.
+# license: docs.python.org/3.11/license.html states the documentation is licensed under the PSF License Agreement
+# (code examples: Zero-Clause BSD). Gzipped snapshots are retained in verification/snapshots/ with this attribution.
+schema_version: 2
+sources:
+  - id: SRC-PY-DATAMODEL-3.11
+    title: "The Python Language Reference: Data model (Python 3.11)"
+    url: https://docs.python.org/3.11/reference/datamodel.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-EXPRESSIONS-3.11
+    title: "The Python Language Reference: Expressions (Python 3.11)"
+    url: https://docs.python.org/3.11/reference/expressions.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-SIMPLE-STMTS-3.11
+    title: "The Python Language Reference: Simple statements (Python 3.11)"
+    url: https://docs.python.org/3.11/reference/simple_stmts.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-COMPOUND-STMTS-3.11
+    title: "The Python Language Reference: Compound statements (Python 3.11)"
+    url: https://docs.python.org/3.11/reference/compound_stmts.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-BUILTINS-3.11
+    title: "The Python Standard Library: Built-in Functions (Python 3.11)"
+    url: https://docs.python.org/3.11/library/functions.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-STDTYPES-3.11
+    title: "The Python Standard Library: Built-in Types (Python 3.11)"
+    url: https://docs.python.org/3.11/library/stdtypes.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-COPY-3.11
+    title: "The Python Standard Library: copy - Shallow and deep copy operations (Python 3.11)"
+    url: https://docs.python.org/3.11/library/copy.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-DATACLASSES-3.11
+    title: "The Python Standard Library: dataclasses - Data Classes (Python 3.11)"
+    url: https://docs.python.org/3.11/library/dataclasses.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-TUTORIAL-CONTROLFLOW-3.11
+    title: "The Python Tutorial: More Control Flow Tools (Python 3.11)"
+    url: https://docs.python.org/3.11/tutorial/controlflow.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-FAQ-PROGRAMMING-3.11
+    title: "Python FAQ: Programming FAQ (Python 3.11)"
+    url: https://docs.python.org/3.11/faq/programming.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.11"
+    license: "PSF License Agreement (docs.python.org/3.11/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-DATAMODEL-3.13
+    title: "The Python Language Reference: Data model (Python 3.13)"
+    url: https://docs.python.org/3.13/reference/datamodel.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-EXPRESSIONS-3.13
+    title: "The Python Language Reference: Expressions (Python 3.13)"
+    url: https://docs.python.org/3.13/reference/expressions.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-SIMPLE-STMTS-3.13
+    title: "The Python Language Reference: Simple statements (Python 3.13)"
+    url: https://docs.python.org/3.13/reference/simple_stmts.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-COMPOUND-STMTS-3.13
+    title: "The Python Language Reference: Compound statements (Python 3.13)"
+    url: https://docs.python.org/3.13/reference/compound_stmts.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-BUILTINS-3.13
+    title: "The Python Standard Library: Built-in Functions (Python 3.13)"
+    url: https://docs.python.org/3.13/library/functions.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-STDTYPES-3.13
+    title: "The Python Standard Library: Built-in Types (Python 3.13)"
+    url: https://docs.python.org/3.13/library/stdtypes.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-COPY-3.13
+    title: "The Python Standard Library: copy - Shallow and deep copy operations (Python 3.13)"
+    url: https://docs.python.org/3.13/library/copy.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-DATACLASSES-3.13
+    title: "The Python Standard Library: dataclasses - Data Classes (Python 3.13)"
+    url: https://docs.python.org/3.13/library/dataclasses.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-TUTORIAL-CONTROLFLOW-3.13
+    title: "The Python Tutorial: More Control Flow Tools (Python 3.13)"
+    url: https://docs.python.org/3.13/tutorial/controlflow.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"
+  - id: SRC-PY-FAQ-PROGRAMMING-3.13
+    title: "Python FAQ: Programming FAQ (Python 3.13)"
+    url: https://docs.python.org/3.13/faq/programming.html
+    publisher: Python Software Foundation
+    kind: official
+    version: "Python 3.13"
+    license: "PSF License Agreement (docs.python.org/3.13/license.html); (c) Python Software Foundation"

@@ -1,0 +1,227 @@
+# Reviewer input for PY-0002. HUMAN-OWNED: scripts create this once and only ever append blocks for new claims.
+# Instructions: verification/review/PY-0002.checklist.md
+reviewer:
+  name: null
+  kind: null                  # human | other_model
+  date: null
+  independent_of_author: null  # true only if you did not write or draft the page
+  affiliation_note: ""
+page_comments: []               # list of strings: [J]/untagged statements that read like language rules, wording problems, etc.
+claims:
+  C1:  # critical | direct | Every object has an identity, a type and a value. The identity never changes once the obje
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C2:  # critical | direct | `is` compares identity: `x is y` is true if and only if x and y are the same object.
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C5:  # critical | direct | Mutable objects can change value; numbers, strings and tuples are immutable, dicts and lis
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C6:  # critical | direct | An immutable container holding a mutable object is still immutable, but its value changes 
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C7:  # critical | direct | == compares values; the default equality is based on identity, and built-in types override
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C12:  # critical | direct | Assignment does not copy objects; it binds a target (name) to an object.
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C17:  # critical | direct | A shallow copy builds a new compound object and inserts references to the original's items
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C20:  # critical | direct | In s * n the items are not copied but referenced multiple times ([[]] * 3 makes three refe
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C21:  # critical | direct | Arguments are passed by assignment, so there is no alias between an argument name in the c
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C22:  # critical | direct | Default parameter values are evaluated once, when the def statement runs, and the same obj
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C26:  # critical | direct | Dict keys and set elements must be hashable; values containing lists, dicts or other mutab
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C3:  # important | direct | id() is unique and constant for an object during its lifetime; objects with non-overlappin
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C4:  # important | direct | In CPython id(x) is the memory address; this is an implementation detail.
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C8:  # important | direct | The default equality behavior is motivated by reflexivity (x is y implies x == y). NaN is 
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C9:  # important | direct | Built-in containers typically assume identical objects are equal to themselves and bypass 
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C10:  # important | direct | PEP 8 advises comparing singletons such as None with `is`/`is not`, never with equality op
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C11:  # important | direct | For immutable types an implementation may return an existing object (a = 1; b = 1 may or m
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C13:  # important | direct | Assignment statements (re)bind names and also modify attributes or items of mutable object
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C14:  # important | direct | Augmented assignment performs the operation in place when possible (the old object is modi
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C15:  # important | inferred | For `t[0] += [3]` with t a tuple holding a list: the documented order is look up t[0], com
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C16:  # important | direct | For lists (mutable sequence types), `s += t` extends s with the contents of t.
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C18:  # important | direct | deepcopy keeps a memo dictionary so recursive objects do not loop forever; deep copy may c
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C19:  # important | direct | dict.copy() and s[:] / s.copy() on lists give shallow copies.
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C23:  # important | direct | The tutorial shows the None-default idiom (`if L is None: L = []`) to avoid sharing a defa
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C24:  # important | direct | The FAQ says default values are created exactly once and recommends not using mutable obje
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C25:  # important | direct | @dataclass raises ValueError for an unhashable default value and offers field(default_fact
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C27:  # important | direct | Hashing a tuple (immutable sequence) that contains unhashable values raises TypeError.
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C28:  # important | direct | A class that overrides __eq__ without defining __hash__ gets __hash__ = None and is unhash
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C29:  # important | direct | Objects are never explicitly destroyed; unreachable objects may be garbage-collected, and 
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C31:  # important | inferred | For a str, `s += x` rebinds s to a new str, so other names bound to the old string are una
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution
+  C32:  # important | inferred | Mutating the object a parameter refers to is visible to the caller, while rebinding the pa
+    verdict: PENDING            # AGREE | DISAGREE | UNABLE_TO_JUDGE
+    comment: ""                 # required for DISAGREE / UNABLE_TO_JUDGE; optional otherwise
+    corrected_wording: ""       # optional: the wording you believe the source supports
+    resolution: ""              # AUTHOR fills after a DISAGREE: RESOLVED_CORRECTED | RESOLVED_REJECTED
+    resolution_note: ""
+    reviewer_accepts_resolution: null   # reviewer sets true/false after reading the resolution

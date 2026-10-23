@@ -1,0 +1,24 @@
+# Build: mkdocs build -f site-config/mkdocs.yml   (run from repo root)
+# docs_dir is the repo root so the same Markdown files serve GitHub and the site.
+# The config lives in a child dir because MkDocs rejects a config file at docs_dir's root.
+site_name: Python Backend to AI Engineer Encyclopedia
+docs_dir: ..
+site_dir: !ENV [ENCYCLOPEDIA_SITE_DIR, "../../encyclopedia-site"]   # must be outside docs_dir (MkDocs rule)
+theme:
+  name: material
+  features: [navigation.indexes, navigation.top, search.suggest, content.code.copy]
+exclude_docs: |
+  .venv/
+  _site/
+  site-config/
+  scripts/
+  tests/
+  verification/examples/
+  requirements.txt
+  .pytest_cache/
+validation:
+  links:
+    not_found: warn
+    absolute_links: warn
+    unrecognized_links: warn
+markdown_extensions: [admonition, tables, toc: {permalink: true}, pymdownx.highlight, pymdownx.superfences]

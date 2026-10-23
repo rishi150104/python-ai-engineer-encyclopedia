@@ -1,0 +1,19 @@
+{
+"id": "P-OWASP-LLM",
+"url": "https://genai.owasp.org/llm-top-10/",
+"accessed_on": "2026-10-23",
+"sha256": "d26b8af98bfef85bf454c29db74c7cf035ff26bc969dcc5e6b02950aaaa24c5e",
+"license": "CC BY-SA 4.0",
+"items": [
+"LLM01:2025 Prompt Injection",
+"LLM02:2025 Sensitive Information Disclosure",
+"LLM03:2025 Supply Chain",
+"LLM04:2025 Data and Model Poisoning",
+"LLM05:2025 Improper Output Handling",
+"LLM06:2025 Excessive Agency",
+"LLM07:2025 System Prompt Leakage",
+"LLM08:2025 Vector and Embedding Weaknesses",
+"LLM09:2025 Misinformation",
+"LLM10:2025 Unbounded Consumption"
+]
+}
